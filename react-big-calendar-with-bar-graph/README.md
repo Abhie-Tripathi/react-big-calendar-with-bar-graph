@@ -1,16 +1,63 @@
-# React + Vite
+### Behavior
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Month, week, and day views are available.
+- Dates that have data are highlighted.
+- Clicking a date opens a popup.
+- If data exists for that date, a bar chart is shown.
+- If there is no data, the popup displays: **“No data found for the selected date.”** and the chosen date.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### Dummy Data
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The data is defined in `src/features/calendarSlice.js` using keys in the format `dd-MM-yyyy`, for example:
 
-## Expanding the ESLint configuration
+```js
+const rawDateData = {
+  '01-11-2025': [
+    { user: 'user_1', value: 1 },
+    { user: 'user_2', value: 2 },
+    { user: 'user_3', value: 3 },
+    { user: 'user_4', value: 4 },
+  ],
+};
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You can adjust or extend this object as needed.
+
+---
+
+### Setup
+
+From the project root:
+
+```bash
+npm install
+```
+
+---
+
+### Run in Development
+
+```bash
+npm run dev
+```
+
+Open the URL printed in the terminal (by default `http://localhost:5173`).
+
+---
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+---
