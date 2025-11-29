@@ -1,42 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-main {
+  padding: 1rem 2rem 2rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.no-data {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.no-data-title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  color: #b91c1c;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.no-data-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7f1d1d;
 }
 
-.card {
-  padding: 2em;
+.rbc-calendar {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 
-.read-the-docs {
-  color: #888;
+.rbc-toolbar {
+  margin-bottom: 0.5rem;
+}
+
+.rbc-toolbar button {
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  padding-inline: 0.75rem;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.rbc-today {
+  background-color: #eff6ff;
 }
