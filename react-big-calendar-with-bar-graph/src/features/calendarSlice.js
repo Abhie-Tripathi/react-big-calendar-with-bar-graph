@@ -58,6 +58,7 @@ const initialState = {
   rawDateData,
   events: buildEventsFromRawData(rawDateData),
   selectedDate: null,
+  isModalOpen: false,
 };
 
 const calendarSlice = createSlice({
@@ -66,6 +67,10 @@ const calendarSlice = createSlice({
   reducers: {
     selectDate(state, action) {
       state.selectedDate = action.payload;
+      state.isModalOpen = true;
+    },
+    closeModal(state) {
+      state.isModalOpen = false;
     },
   },
 });

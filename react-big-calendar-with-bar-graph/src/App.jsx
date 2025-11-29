@@ -5,10 +5,13 @@ import { format, parse, startOfWeek, getDay } from "date-fns";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import enUS from "date-fns/locale/en-US";
 import {
+  closeModal,
   formatDateKey,
+  getDataForDate,
   selectCalendarState,
   selectDate,
-} from "./features/calendarSlice";
+} from './features/calendarSlice';
+import { DataModal } from './components/DataModal';
 
 const locales = {
   "en-US": enUS,
@@ -24,7 +27,7 @@ const localizer = dateFnsLocalizer({
 
 export default function App() {
   const dispatch = useDispatch();
-  const { events, rawDateData, selectedDate} =
+  const { events, rawDateData, selectedDate, isModalOpen } =
     useSelector(selectCalendarState);
 
   const onSelectSlot = ({ start }) => {
@@ -34,6 +37,10 @@ export default function App() {
   const onSelectEvent = (event) => {
     dispatch(selectDate(event.start));
   };
+
+  const modalData = getDataForDate(rawDateData, selectedDate)
+
+  const handleCloseModal = () => dispatch(closeModal());
 
   const dayPropGetter = (date) => {
     const key = formatDateKey(date);
@@ -95,6 +102,12 @@ export default function App() {
         />
       </main>
 
+      <DataModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        selectedDate={selectedDate}
+        data={modalData}
+      />
     </div>
   );
 }
